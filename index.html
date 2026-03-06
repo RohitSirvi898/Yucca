@@ -138,6 +138,7 @@
             display:flex;
             margin-top: 80px;
             display: flex;
+            z-index: 2;
         }
         .card{
             width: 285px;
@@ -232,8 +233,6 @@
         .card:hover .detail .tell-more a{
             transform: translate(0, 0);
         }
-
-
         .second-page{
             width: 100%;
             height: 100%;
@@ -311,19 +310,42 @@
         .fourth-page{
             width: 100%;
             height: 100%;
-            background-color: #00000000;
+            /* background-color: #dc1313; */
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
-        .fourth-page .cards-container{
+        .fourth-container{
+            width: 100%;
+            height: 100%;
             display: flex;
+            justify-content: center;
+            align-items: center;
             gap: 20px;
+        }
+        .fourth-background{
+            width: 100%;
+            height: 100%;
+            background-image: url("background-image.jpg");
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        .scale-up{
+            z-index: 6;
+        }
+        .change1:hover ~ .fourth-background{
+            background-image: url("foodProcessing.jpg");
         }
         .scale-up:hover{
             transform: scale(1.2);
             transition: all 0.5s ease-in-out;
         }
+        
     </style>
 </head>
 <body>
@@ -427,7 +449,7 @@
         <section class ="second-page">
             <div class="Lines">
                 <div class="right-transition">Yucca Direct (B2B)  Quality Branding  Yucca Rewards  Yucca Direct (B2B)  Quality Branding  Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards </div>
-                <div class="left-transition">Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging </div>
+                <div class="left-transition"> Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging </div>
             </div>
         </section>
         <section class="third-page">
@@ -436,8 +458,9 @@ help you make your products memorable.</div>
             <button>See products</button>
         </section>
         <section class="fourth-page">
-            <div class="cards-container">
-                <div class="card scale-up ">
+            
+            <div class="fourth-container">
+                <div class="card scale-up change1">
                     <div class="title"><p>Food Services</p></div>
                     <div class="detail">
                         <div class="lines">
@@ -456,7 +479,7 @@ help you make your products memorable.</div>
                         </div>
                     </div>
                 </div>
-                <div class="card scale-up">
+                <div class="card scale-up change2">
                     <div class="title"><p>Food Processing</p></div>
                     <div class="detail">
                         <div class="lines">
@@ -475,7 +498,7 @@ help you make your products memorable.</div>
                         </div>
                     </div>
                 </div>
-                <div class="card scale-up">
+                <div class="card scale-up change3">
                     <div class="title"><p>Agriculture</p></div>
                     <div class="detail">
                         <div class="lines">
@@ -494,6 +517,7 @@ help you make your products memorable.</div>
                         </div>
                     </div>
                 </div>
+                <div class="fourth-background"></div>
             </div>
         </section>
     </div>
