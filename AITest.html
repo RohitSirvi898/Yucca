@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+    /* Using local OTF files in the project. Use correct format identifier */
+        @font-face {
+            font-family: "Magnetik";
+            src: url("Magnetik-ExtraLight.otf") format("opentype");
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: "Magnetik";
+            src: url("Magnetik-Light.otf") format("opentype");
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: "Magnetik";
+            src: url("Magnetik-Medium.otf") format("opentype");
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Magnetik', sans-serif;
+        }
+        
+        html, body {
+          width: 100%;
+          height: 100%;
+        }
+        .wrapper{
+            width: 100%;
+            height: 100vh;
+        }
+        nav{
+            width: 100%;
+            height: 85px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 9.6%;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            background-color: transparent;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-left{
+            display: flex;
+            align-items: center;
+        }
+        .logo{
+            height: 68px;
+            margin-right: 50px ;
+        }
+        .logo img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .nav-items a{
+            margin-right: 32px;
+            text-decoration: none;
+            color: rgba(0,0,0,.8);
+            font-size: 14px;
+            font-weight: 300;
+        }
+        .nav-right{
+            display: flex;
+            align-items: center;
+        }
+        .creditApplication{
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .creditApplication i{
+            font-size: 17px;
+            margin-right: 5px;
+            font-weight: 300;
+            color: rgba(0,0,0,0.4);
+        }
+        .creditApplication a{
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 300;
+            color: rgba(0,0,0,0.4);
+            margin-right: 15px;
+        }
+        .icon-btn i{
+            font-size: 15px;
+            margin-right: 5px;
+            border: 1px solid rgba(0,0,0,1);
+            padding: 6px;
+            border-radius: 3px;
+        }
+
+        nav:hover{
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .starting-page{
+            width: 100%;
+            height: 100%;
+            background-image: url("background-image.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 85px 10% 0 10%;
+        }
+        .line{
+            display: flex;
+            height: 95px;
+        }
+        .word{
+            font-size: 75px;
+            font-family: 'Magnetik', sans-serif;
+            font-weight: 100;
+            color: rgba(0,0,0,0.8);
+            margin-right: 15px;
+        }
+        .cards-container{
+            display:flex;
+            margin-top: 80px;
+            display: flex;
+        }
+        .card{
+            width: 285px;
+            height: 285px;
+            background-color: rgba(255, 255, 255, 0.24);
+            backdrop-filter: blur(30px);
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .card .title{
+            width: 100%;
+            height: 35px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            overflow: hidden;
+            
+        }
+        .title p{
+            font-size: 28px;
+            font-weight: 300;
+            color: rgba(0,0,0,0.8);
+            transition: all 0.5s ease-in-out;
+        }
+        .detail{
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.792);
+        }
+        .lines{
+            width: 100%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .detail .line{
+            height: 13px;
+            overflow: hidden;
+        }
+        .detail .line p{
+            font-size: 13px;
+            font-weight: 200;
+            color: rgba(0,0,0,0.8);
+            transform: translate(0,150%);
+            transition: all 0.3s ease-in-out;
+        }
+        .separator{
+            width: 0%;
+            height: 1px;
+            background-color: rgba(0,0,0,1);
+            margin: 10px 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .detail .tell-more{
+            height: 17px;
+            overflow: hidden;
+        }
+        .detail .tell-more a{
+            font-size: 12px;
+            font-weight: 200;
+            color: rgba(0,0,0,0.8);
+            transform: translate(0,150%);
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover .detail{
+            opacity: 1;
+        }
+        .card:hover .title p{
+            transform: translate(0, -100%);
+            opacity: 0;
+        }
+        .card:hover .separator{
+            width: 100%;
+        }
+        .card:hover .detail .line p{
+            transform: translate(0, 0);
+        }
+        .card:hover .detail .tell-more a{
+            transform: translate(0, 0);
+        }
+
+
+        .second-page{
+            width: 100%;
+            height: 100%;
+            background-color: #DFDAC6;
+            background-image: url("Plastic.webp");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            overflow: hidden;
+        }
+        .Lines{
+            width: 16000px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            overflow: auto;
+        }
+        .right-transition{
+            font-size: 55px;
+            font-weight: 300;
+            color: rgba(0,0,0,0.8);
+            animation: rightTransition 100s linear infinite;
+        }
+        .left-transition{
+            font-size: 55px;
+            font-weight: 300;
+            color: rgba(0,0,0,0.8);
+            transform: translateX(-70%);
+            animation: leftTransition 100s linear infinite;
+        }
+        @keyframes rightTransition {
+            100% {
+                transform: translateX(0);
+            }
+            0% {
+                transform: translateX(-80%);
+            }
+        }
+        @keyframes leftTransition {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-80%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="nav-left">
+                <div class="logo"><img src="logo-removebg-preview.png" alt="yucca-logo"></div>
+                <div class="nav-items">
+                    <a href="#">Shop</a>
+                    <a href="#">Packing Solutions</a>
+                    <a href="#">Company</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Constact Us</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="creditApplication">
+                    <i class="ri-file-list-3-line"></i>
+                    <a href="#">Credit Application</a>
+                </div>
+                <div class="icon-btn">
+                    <i class="ri-shopping-cart-2-line"></i>
+                    <i class="ri-user-line"></i>
+                </div>
+            </div>
+        </nav>
+        <section class="starting-page">
+            <div class="line">
+                <div class="word">Packaging</div>
+                <div class="word">that</div>
+            </div>
+            <div class="line">
+                <div class="word">Performs.</div>
+                <div class="word">Innovated</div>
+            </div>
+            <div class="line">
+                <div class="word">for</div>
+                <div class="word">industry</div>
+                <div class="word">Leaders.</div>
+            </div>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="title"><p>Food Services</p></div>
+                    <div class="detail">
+                        <div class="lines">
+                        <div class="line"><p>Your food service packaging is an extension</p></div>
+                        <div class="line"><p>of your brand experience. Have functional</p></div>
+                        <div class="line"><p>and on-brand items like cups, tubs, bowls,</p></div>
+                        <div class="line"><p>and more readily available for takeout,</p></div>
+                        <div class="line"><p>catering, and deli food. Choose standard</p></div>
+                        <div class="line"><p>containers, customised or designed from</p></div>
+                        <div class="line"><p>scratch.</p></div>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="tell-more">
+                            <a href="#">Tell Me More</a>
+                            <i></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="title"><p>Food Processing</p></div>
+                </div>
+                <div class="card">
+                    <div class="title"><p>Agriculture</p></div>
+                </div>
+            </div>
+        </section>
+        <section class ="second-page">
+            <div class="Lines">
+                <div class="right-transition">Yucca Direct (B2B)  Quality Branding  Yucca Rewards  Yucca Direct (B2B)  Quality Branding  Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards Yucca Direct (B2B) Quality Branding Yucca Rewards </div>
+                <div class="left-transition">Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging Sustainable Innovation Partnerships Custom Packaging </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
